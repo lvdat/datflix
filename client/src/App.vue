@@ -4,11 +4,25 @@ import Header from '@/components/Header.vue'
 </script>
 
 <template>
-    <Header />
-    <router-view />
-
+    <div id="main">
+        <Header />
+        <div class="container">
+            <div class="row main__row">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    Một số server đang được bảo trì.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <router-view />
+            </div>
+        </div>    
+    </div>
 </template>
 
 <style scoped>
-
+.alert-warning {
+    border-radius: 0%;
+    border: 1px solid #b8b612;
+    background-color: #000;
+    color: white;
+}
 </style>
