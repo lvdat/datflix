@@ -1,12 +1,13 @@
 <script setup>
 import 'bootstrap'
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
     <div id="main">
         <Header />
-        <div class="container">
+        <div class="container main__container">
             <div class="row main__row">
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     Một số server đang được bảo trì.
@@ -14,6 +15,7 @@ import Header from '@/components/Header.vue'
                 </div>
                 <router-view />
             </div>
+            <Footer />
         </div>    
     </div>
 </template>
