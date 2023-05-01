@@ -1,37 +1,53 @@
 <template>
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top main__nav">
-        <div class="container">
-        <a class="navbar-brand" href="/"><b><i class="fab fa-youtube"></i> DATFLIX</b> </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/dvut"><i class="fas fa-gamepad"></i> Danh sách Game</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="/dvut"><i class="fas fa-info"></i> Giới thiệu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="/dvut"><i class="fas fa-rss"></i> Tin tức</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/login"> Đăng nhập</a>
-                </li>
-                <button class="btn btn-success btn__signup" type="submit">Tạo tài khoản </button>
-                <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-user-circle"></i> Xin chào,
-                    </a>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><b><i class="fab fa-youtube"></i> DATFLIX</b> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/dvut"><i class="fas fa-square-rss"></i> Phim mới</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/dvut"><i class="fas fa-clapperboard"></i> Phim lẻ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/dvut"><i class="fas fa-film"></i> Phim bộ</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-film"></i> Thể loại
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-earth-africa"></i> Quốc gia
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                </li>
-            </ul>
-        </div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 nav--search__input" type="search" placeholder="Tìm kiếm phim..." aria-label="Search">
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle"></i> Chưa đăng nhập
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Đăng nhập</a></li>
+                            <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Tạo tài khoản</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 </template>
@@ -41,10 +57,6 @@ export default {
 }
 </script>
 <style>
-.btn__signup {
-    padding: 0px 20px 0px 20px;
-}
-
 .nav-item {
     margin-right: 15px;
 }
@@ -60,5 +72,8 @@ a.nav-link.active:hover {
 }
 .navbar-brand {
     color: rgb(0, 255, 133)!important;
+}
+input.nav--search__input {
+    border-radius: 0%;
 }
 </style>
