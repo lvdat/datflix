@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top main__nav">
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top main__nav" id="navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><b><i class="fab fa-youtube"></i> DATFLIX</b> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,6 +52,23 @@
     </nav>
 </template>
 <script>
+let previousScrollPosition = window.pageYOffset;
+
+window.addEventListener("scroll", function() {
+    const currentScrollPosition = window.pageYOffset;
+
+    if (previousScrollPosition > currentScrollPosition) {
+        // Cuộn lên
+        document.getElementById("navbar").classList.add("navbar-visible");
+        document.getElementById("navbar").classList.remove("navbar-hidden");
+    } else {
+        // Cuộn xuống
+        document.getElementById("navbar").classList.add("navbar-hidden");
+        document.getElementById("navbar").classList.remove("navbar-visible");
+    }
+
+    previousScrollPosition = currentScrollPosition;
+});
 export default {
     
 }
@@ -75,5 +92,14 @@ a.nav-link.active:hover {
 }
 input.nav--search__input {
     border-radius: 0%;
+}
+.navbar-hidden {
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+}
+
+.navbar-visible {
+    transform: translateY(0);
+    transition: transform 0.3s;
 }
 </style>
