@@ -3,7 +3,7 @@
         <MainSlider />
     </div>
     <div class="col-md-8">
-        A
+        <HomeFilmList />
     </div>
     <div class="col-md-4">
         B
@@ -11,10 +11,11 @@
 </template>
 <script>
 import MainSlider from '@/components/MainSlider.vue'
+import HomeFilmList from '../components/HomeFilmList.vue'
 export default {
     components: {
-    MainSlider,
-    MainSlider
-}
+        MainSlider,
+        HomeFilmList
+    }
 }
 </script>

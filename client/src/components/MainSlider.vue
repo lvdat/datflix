@@ -1,134 +1,70 @@
 <template>
-    <section>
-      <div class="scroll-holder">        
-            <div class="scroll-tray">
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
-                <div>
-                <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" />
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="home-list-wrapper">
+                <ul class="home-film-list">
+                    <li>
+                        <div class="home-film-card">
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="home-film-card">
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="home-film-card">
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="home-film-card">
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="home-film-card">
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="home-film-card">
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="home-film-card">
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="home-film-card">
+
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
 </template>
-<style>
-    body {
-        background-color: #030328;
-    }
-
-    h1 {
-        color:white;
-        text-align: center;
-        font-size: 50px;
-        padding-top: 70px;
-        font-weight: normal;
-        margin-bottom: 0;
-    }
-
-    h2 {
-        color:white;
-        text-align: center;
-        font-size: 30px;
-        padding-bottom: 70px;
-        font-weight: normal;
-        margin-bottom: 0;
-    }
-
-    .scroll-tray {
-        white-space: nowrap;
-    }
-    .scroll-tray div {
-        display: inline-block;
-    }
-
-    .scroll-tray img {
-        border-radius: 0.3rem;
-        margin: 7px 5px;
-        padding: 0;
-        max-height: 212px;
-    }
-
-    .scroll-holder {
-        overflow-x: hidden;
-    }
-
-    .scroll-holder .scroll-tray:first-child {
-        animation: scroll-tray-hero 180s linear infinite;
-    }
-
-    .scroll-holder .scroll-tray:last-child {
-        animation: scroll-tray-hero 120s linear infinite;
-    }
-
-    @keyframes scroll-tray-hero {
-    0% {
-        transform: translateX(0);
-    }
-
-    99.99% {
-        transform: translateX(-7098px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-    }
+<style scoped>
+.home-list-wrapper {
+    overflow-x: auto;
+}
+ul.home-film-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    padding-left: unset;
+}
+ul.home-film-list > li {
+    margin-right: 30px;
+    flex-shrink: 0;
+}
+.home-film-card {
+    width: 145px;
+    height: 205px;
+    border: 1px solid #fff;
+}
 </style>
