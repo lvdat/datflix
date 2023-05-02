@@ -1,28 +1,35 @@
 <template>
     <div class="row mb-3">
-        <div class="content-header">
-            <h2>
-                Phim mới
-            </h2>
+        <div class="row">
+            <div class="col-8">
+                <div class="content-header">
+                    <h2>
+                        {{ dataFilm.name }}
+                    </h2>
+                </div>
+            </div>
+            <div class="col-4">
+
+            </div>
         </div>
-        <Carousel v-bind="settings" :breakpoints="breakpoints">
-            <Slide v-for="slide in 10" :key="slide">
+        <Carousel ref="carousel" v-bind="settings" :breakpoints="breakpoints">
+            <Slide v-for="slide in dataFilm.data" :key="slide">
                 <div class="carousel__item">
                     <div class="film-card">
-                        <img src="https://phimmoiyy.net/wp-content/uploads/2023/03/John-Wick-4.jpg" alt="{{ slide }}" />
+                        <img :src="slide.thumbnail" :alt="slide.name" />
                         <div class="film-card__status">
-                            HD VIETSUB
+                            {{ slide.status }}
                         </div>
                     </div>
                     <div class="movie-meta">
                         <div class="movie-meta_name">
-                            John Wick (2023)dasdasdaaaaaaaaaaaaaaaaaa
+                            {{ slide.name }}
                         </div>
                         <div class="movie-meta_oname">
-                            John Wick (2023)
+                            {{ slide.oname }}
                         </div>
                         <div class="movie-meta_views">
-                            1tr lượt xem
+                            {{ slide.views }} lượt xem
                         </div>
                     </div>
                 </div>
@@ -39,7 +46,9 @@ import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 export default {
     props: {
-
+        dataFilm: {
+            type: Object,
+        }
     },
     components: {
         Carousel,
@@ -133,5 +142,10 @@ export default {
 .movie-meta_views {
     color: #ddd;
     font-size: 12px;
+}
+.carousel__next:hover, .carousel__prev:hover {
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
 }
 </style>
