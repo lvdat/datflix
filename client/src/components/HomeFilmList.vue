@@ -25,7 +25,7 @@
                         <div class="movie-meta_name">
                             {{ slide.name }}
                         </div>
-                        <div class="movie-meta_oname">
+                        <div class="movie-meta_oname mb-2">
                             {{ slide.oname }}
                         </div>
                         <div class="movie-meta_views">
@@ -136,16 +136,11 @@ export default {
 
 }
 .movie-meta_oname {
-    color: #ddd;
+    color: #ccc;
     font-size: 12px;
 }
 .movie-meta_views {
     color: #ddd;
     font-size: 12px;
-}
-.carousel__next:hover, .carousel__prev:hover {
-    background: #000;
-    color: #fff;
-    border-radius: 50%;
 }
 </style>
