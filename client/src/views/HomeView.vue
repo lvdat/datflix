@@ -24,6 +24,8 @@ export default {
             name: "Phim HOT",
             data: [
                 {
+                    id: "123",
+                    slug: "xem-phim-join-wick",
                     name: "JOHN WICK (2023)",
                     oname: "JOHN WICK (2023)",
                     views: "1.000.000",
