@@ -16,6 +16,13 @@ const router = createRouter({
                 import ('@/views/LoginView.vue'),
             meta: { title: 'Đăng nhập' }
         },
+        {
+            path: '/:pathMatch(.*)*',
+            name: 'notfound',
+            component: () =>
+                import ('@/views/NotFoundView.vue'),
+            meta: { title: 'Trang không tồn tại!' }
+        },
     ]
 })
 
