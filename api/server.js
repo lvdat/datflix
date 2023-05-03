@@ -4,6 +4,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import logger from 'morgan'
 import mongoose from 'mongoose'
+import router from './routes.js'
 
 const app = express()
 dotenv.config()
@@ -27,6 +28,8 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
         console.log("Cannot connect to MongoDB", err)
         process.exit()
     })
+
+app.use('/api/', router)
 
 app.listen(port, () => {
     console.log(`DATFLIX API running on port ${port}`)
