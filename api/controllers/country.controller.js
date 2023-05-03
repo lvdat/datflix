@@ -35,3 +35,26 @@ export const getCountryByIsoCode = async(req, res) => {
         })
     }
 }
+
+export const createCountry = async(req, res) => {
+    try {
+        const country = await Country.create({
+            iso_code: req.body.iso_code,
+            name: req.body.name,
+        })
+        if (country) {
+            return res.status(200).send({
+                message: "Success",
+                id: country._id
+            })
+        }
+        return res.status(400).send({
+            message: "Failed",
+            id: country._id
+        })
+    } catch (err) {
+        return res.status(500).send({
+            message: "Server Internal Error."
+        })
+    }
+}
