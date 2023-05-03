@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useAuthStore } from '@/stores/account'
 
-const config = {
+const commonConfig = {
     headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -17,7 +17,10 @@ export default (baseURL) => {
             if (auth.isAuth) {
                 config.headers['accesstoken'] = auth.token
             }
-            return config
+            return {
+                config,
+                ...commonConfig
+            }
         },
         (error) => {
             return Promise.reject(error)
