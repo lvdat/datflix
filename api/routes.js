@@ -1,6 +1,8 @@
 import express from 'express'
 import { getAllCountry, getCountryByIsoCode } from './controllers/country.controller.js'
 import { getAllCategory, getCategoryBySlug } from './controllers/category.controller.js'
+import { getAllPeople } from './controllers/people.controller.js'
+
 const router = express.Router()
 
 router.get('/', (req, res) => {
@@ -20,5 +22,9 @@ router.route('/categories')
     .get(getAllCategory)
 router.route('/category/:slug')
     .get(getCategoryBySlug)
+
+// People
+router.route('/people')
+    .get(getAllPeople)
 
 export default router
