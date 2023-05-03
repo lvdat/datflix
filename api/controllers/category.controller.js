@@ -35,3 +35,26 @@ export const getCategoryBySlug = async(req, res) => {
         })
     }
 }
+
+export const createCategory = async(req, res) => {
+    try {
+        const category = await Category.create({
+            title: req.body.title,
+            slug: req.body.slug,
+        })
+        if (category) {
+            return res.status(200).send({
+                message: "Success",
+                id: category._id
+            })
+        }
+        return res.status(400).send({
+            message: "Failed",
+            id: category._id
+        })
+    } catch (err) {
+        return res.status(500).send({
+            message: "Server Internal Error."
+        })
+    }
+}

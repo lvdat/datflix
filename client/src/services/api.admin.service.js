@@ -15,7 +15,7 @@ export default (baseURL) => {
         (config) => {
             const auth = useAuthStore()
             if (auth.isAuth) {
-                config.headers['accesstoken'] = auth.token
+                config.headers['token'] = auth.token
             }
             return {
                 config,

@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 import slugify from 'slugify'
 
 const categorySchema = new mongoose.Schema({
-    name: String,
+    title: String,
     slug: {
         type: String,
         set: (value) => {
