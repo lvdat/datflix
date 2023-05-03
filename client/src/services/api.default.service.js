@@ -14,4 +14,4 @@ export default (baseURL) => {
     })
 }
 
-// Default API: no require login after fetch!
+// Default API: no require login before fetch!
