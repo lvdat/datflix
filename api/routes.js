@@ -1,5 +1,5 @@
 import express from 'express'
-import { getAllCountry } from './controllers/country.controller.js'
+import { getAllCountry, getCountryByIsoCode } from './controllers/country.controller.js'
 
 const router = express.Router()
 
@@ -12,5 +12,7 @@ router.get('/', (req, res) => {
 // country
 router.route('/country')
     .get(getAllCountry)
+router.route('/country/:isocode')
+    .get(getCountryByIsoCode)
 
 export default router
