@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-//import { useAuthStore } from '@/stores/account'
+import { useAuthStore } from '@/stores/account'
 
 const router = createRouter({
     history: createWebHistory(
@@ -60,35 +60,43 @@ const router = createRouter({
             meta: { title: 'Chi tiết phim' }
         },
         {
-            path: '/:pathMatch(.*)*',
-            name: 'notfound',
-            component: () =>
-                import ('@/views/NotFoundView.vue'),
-            meta: { title: 'Trang không tồn tại!' }
-        },
-        {
             path: '/admin',
             name: 'admin',
             component: () =>
                 import ('@/views/AdminView.vue'),
             meta: { title: 'Quản trị' },
+            beforeEnter: (to, from, next) => {
+                const Auth = useAuthStore()
+                if (!Auth.isAuth) {
+                    next({ name: 'adminLogin' })
+                } else {
+                    next()
+                }
+            },
             children: [{
-                path: '/films',
+                path: 'films',
                 name: 'films',
                 children: [{
-                        path: '/create',
+                        path: 'create',
                         name: 'createFilm',
                     },
                     {
-                        path: '/edit/:id',
+                        path: 'edit/:id',
                         name: 'editFilm',
                     },
                     {
-                        path: '/delete/:id',
+                        path: 'delete/:id',
                         name: 'deleteFilm',
                     },
                 ]
             }]
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            name: 'notfound',
+            component: () =>
+                import ('@/views/NotFoundView.vue'),
+            meta: { title: 'Trang không tồn tại!' }
         },
     ]
 })
