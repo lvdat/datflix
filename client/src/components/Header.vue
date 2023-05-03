@@ -36,14 +36,13 @@
                 <form class="d-flex" role="search">
                     <input class="form-control me-2 nav--search__input" type="search" placeholder="Tìm kiếm phim..." aria-label="Search">
                 </form>
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto" v-show="logged">
                     <li class="nav-item dropdown">
                         <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user-circle"></i> Chưa đăng nhập
+                        <i class="fas fa-user-circle"></i> Xin chào, 
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Đăng nhập</a></li>
-                            <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Tạo tài khoản</a></li>
+                            <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -52,6 +51,7 @@
     </nav>
 </template>
 <script>
+// hide and show navbar on scroll
 let previousScrollPosition = window.pageYOffset;
 
 window.addEventListener("scroll", function() {
@@ -69,8 +69,28 @@ window.addEventListener("scroll", function() {
 
     previousScrollPosition = currentScrollPosition;
 });
+
+// --------------- //
+import { useAuthStore } from '@/stores/account'
+
 export default {
-    
+    data: () => ({
+        logged: false,
+    }),
+    methods: {
+        checkLogin () {
+            const Auth = useAuthStore()
+            this.logged = Auth.isAuth
+        }
+    },
+    created () {
+        this.checkLogin()
+    },
+    watch: {
+        $route: function () {
+            this.checkLogin()
+        }
+    }
 }
 </script>
 <style>
