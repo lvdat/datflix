@@ -20,6 +20,21 @@ import Footer from '@/components/Footer.vue'
     </div>
 </template>
 
+<script>
+export default {
+    name: 'Datflix',
+    watch: {
+        $route: {
+            immediate: true,
+            handler (to, from) {
+                document.title = (to.meta.title) ?  (to.meta.title + ' | DATFLIX') : 'DATFLIX'
+            }
+        }
+    }
+}
+
+</script>
+
 <style scoped>
 .alert-warning {
     border-radius: 0%;
