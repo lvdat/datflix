@@ -2,6 +2,8 @@ import express from 'express'
 import { getAllCountry, getCountryByIsoCode } from './controllers/country.controller.js'
 import { getAllCategory, getCategoryBySlug } from './controllers/category.controller.js'
 import { getAllPeople } from './controllers/people.controller.js'
+import { checkBeforeLogin } from './middleware/checkLogin.js'
+import { login } from './controllers/user.controller.js'
 
 const router = express.Router()
 
@@ -26,5 +28,10 @@ router.route('/category/:slug')
 // People
 router.route('/people')
     .get(getAllPeople)
+
+// auth
+router.route('/auth/login')
+    .post([checkBeforeLogin, login])
+
 
 export default router
