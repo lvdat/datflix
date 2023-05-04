@@ -39,10 +39,11 @@
                 <ul class="navbar-nav ml-auto" v-show="logged">
                     <li class="nav-item dropdown">
                         <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user-circle"></i> Xin chào, 
+                        <i class="fas fa-user-circle"></i> Xin chào, {{ username }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                            <li><router-link class="dropdown-item" to="/admin"><i class="fas fa-sign-out-alt"></i> Admin Panel</router-link></li>
+                            <li><a class="dropdown-item" @click="logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>         
                         </ul>
                     </li>
                 </ul>
@@ -76,11 +77,22 @@ import { useAuthStore } from '@/stores/account'
 export default {
     data: () => ({
         logged: false,
+        username: null,
     }),
     methods: {
         checkLogin () {
             const Auth = useAuthStore()
             this.logged = Auth.isAuth
+            if (this.logged) {
+                this.username = Auth.username
+            }
+        },
+        logout () {
+            const Auth = useAuthStore()
+            Auth.logout()
+            this.username = null
+            this.checkLogin()
+            this.$router.push('/')
         }
     },
     created () {

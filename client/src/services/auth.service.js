@@ -1,4 +1,4 @@
-import createApiClient from './api.admin.service'
+import createApiClient from './api.default.service'
 import { useAuthStore } from '@/stores/account'
 
 class AuthService {
@@ -7,9 +7,9 @@ class AuthService {
     }
     login = async(data) => {
         const authStore = useAuthStore()
-        const res = (await this.api.post('/login', data)).data
-        if (res.token) {
-            authStore.login(res.token)
+        const res = (await this.api.post('/login', data))
+        if (res.data.token) {
+            authStore.login(res.data.token, data.username)
         }
         return res
     }

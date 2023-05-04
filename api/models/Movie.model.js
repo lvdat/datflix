@@ -24,6 +24,8 @@ const movieSchema = new mongoose.Schema({
     // Các trường khác tùy ý
     director: String,
     duration: Number,
+    thumbnail: String,
+    video: [Object],
 })
 
 export default mongoose.model('Movie', movieSchema)

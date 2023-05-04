@@ -14,14 +14,14 @@
         </div>
         <Carousel ref="carousel" v-bind="settings" :breakpoints="breakpoints">
             <Slide v-for="slide in dataFilm.data" :key="slide">
-                <div class="carousel__item">
+                <div class="carousel__item" @click="watch(slide.slug)">
                     <div class="film-card">
                         <img :src="slide.thumbnail" :alt="slide.name" />
                         <div class="film-card__status">
                             {{ slide.status }}
                         </div>
                     </div>
-                    <div class="movie-meta">
+                    <div class="movie-meta"> 
                         <div class="movie-meta_name">
                             {{ slide.name }}
                         </div>
