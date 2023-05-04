@@ -3,6 +3,11 @@
     src: url('/src/assets/fonts/Roboto-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'UTMCafeta';
+    src: url('/src/assets/fonts/UTM-Cafeta.ttf');
+}
+
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px
@@ -47,6 +52,7 @@ body {
     background-color: rgba(15, 15, 15, .9);
     color: rgba(255, 255, 255);
     box-shadow: 0px 3px 6px black;
+    padding-top: 10px;
 }
 
 .carousel__next,

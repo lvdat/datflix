@@ -46,14 +46,14 @@ const router = createRouter({
             meta: { title: 'Quốc gia' }
         },
         {
-            path: '/phim/:id/:slug',
+            path: '/phim/:id',
             name: 'detail',
             component: () =>
                 import ('@/views/FilmDetailView.vue'),
             meta: { title: 'Chi tiết phim' }
         },
         {
-            path: '/xem-phim/:id/:slug',
+            path: '/xem-phim/:id',
             name: 'play',
             component: () =>
                 import ('@/views/PlayView.vue'),

@@ -9,10 +9,12 @@ import Footer from '@/components/Footer.vue'
         <Header />
         <div class="container main__container">
             <div class="row main__row">
+                <!--
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     Một số server đang được bảo trì.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+                -->
                 <router-view />
             </div>
             <Footer />
