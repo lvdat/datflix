@@ -79,18 +79,6 @@ export default {
 }
 </script>
 <style scoped>
-.content-header {
-    float: left;
-    width: 100%;
-    padding: 15px 10px;
-    line-height: 20px;
-}
-.content-header h2 {
-    border-left: solid 3px #408bea;
-    padding-left: 15px;
-    font-size: 20px;
-    font-weight: 500;
-}
 .carousel__item {
     cursor: pointer;
 }
