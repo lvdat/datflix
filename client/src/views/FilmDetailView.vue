@@ -5,16 +5,18 @@
 
         </div>
         <div class="col-md-4">
-
+            <RelatedMovie />
         </div>
     </div>
 </template>
 
 <script>
 import FilmInfo from '../components/FilmInfo.vue'
+import RelatedMovie from '../components/RelatedMovie.vue'
 export default {
     components: {
         FilmInfo,
+        RelatedMovie,
     },
     props: {
         name: {

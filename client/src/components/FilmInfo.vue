@@ -11,13 +11,9 @@
                 <span class="play--info__meta--oname mb-3">
                     推しの子 (2023)
                 </span>
-                <div class="play--info__meta--bio">
-                    <div class="card">
-                        <div class="card-body">
-                            Đứa Con Của Thần Tượng - 推しの子 "Trong giới thần tượng, nói dỗi chính là vũ khí." Goro, người làm bác sĩ sản phụ khoa ở một thành phố nhỏ, hàng ngày sống một cuộc sống không liên quan gì đến ngành giải trí. Mặt khác, thần tượng Hoshino Ai mà anh "ủng hộ" bắt đầu thăng hạng trong danh sách... [ Xem thêm]
-                        </div>
-                    </div>
-                </div>
+                <span class="play--info__meta--info mb-3">
+                    Nhật Bản | 50 tập | <span style="color: rgba(255,255,255,.28); font-size: 16px">2023</span>
+                </span>
             </div>
         </div>
     </div>
@@ -52,9 +48,17 @@
             </div>
         </div>
     </div>
+    <hr />
+    <div class="row">
+        <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="100%" data-numposts="10"></div>
+    </div>
 </template>
 <script>
+import StarRating from 'vue-star-rating'
 export default {
+    components: {
+        StarRating,
+    },
     props: {
         showPlay: {
             type: Boolean,
@@ -118,5 +122,9 @@ export default {
 }
 .movie-info-nav-tabs {
     
+}
+.play--info__meta--info {
+    font-size: 16px;
+    color: rgba(255,255,255,.6);
 }
 </style>
