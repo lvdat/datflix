@@ -4,7 +4,7 @@ import Episode from '../models/Episode.model.js'
 
 export const getAllMovie = async(req, res) => {
     try {
-        const movies = await Movie.find().exec()
+        const movies = await Movie.find().populate('genres').populate('country').exec()
         if (!movies || movies.length === 0) {
             return res.status(404).send({
                 message: "Chưa có phim nào :("
@@ -56,7 +56,6 @@ export const createMovie = async(req, res) => {
         }
         return res.status(400).send({
             message: "Failed",
-            id: movie._id
         })
     } catch (err) {
         return res.status(500).send({

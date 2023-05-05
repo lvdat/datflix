@@ -43,7 +43,7 @@ router.route('/auth/login')
 router.route('/movies')
     .get(getAllMovie)
 router.route('/movie')
-    .post(createCategory)
+    .post(createMovie)
 router.route('/movie/:id')
     .get(getMovieById)
 
