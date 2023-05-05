@@ -18,7 +18,7 @@
                 <tr v-for="item in movies" :key="item._id">
                     <th scope="row">{{ item._id }}</th>
                     <td>{{ item.title }}</td>
-                    <td><button @click="deleteMovie()" class="btn btn-danger"><i class="fas fa-trash"></i></button></td>
+                    <td><button @click="deleteMovie(item._id)" class="btn btn-danger"><i class="fas fa-trash"></i></button></td>
                 </tr>
             </tbody>
         </table>
@@ -41,8 +41,15 @@ export default {
                 console.log(err)
             }
         },
-        async deleteMovie () {
-
+        async deleteMovie (id) {
+            if (confirm('Bạn có muốn xoá liên hệ này?')) {
+                try {
+                    await MovieSevice.deleteMovie(id)
+                } catch (err) {
+                    console.log(err)
+                }
+            }
+            this.getMovies()
         }
     },
     created () {

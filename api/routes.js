@@ -2,7 +2,7 @@ import express from 'express'
 import { getAllCountry, getCountryByIsoCode } from './controllers/country.controller.js'
 import { getAllCategory, getCategoryBySlug, createCategory } from './controllers/category.controller.js'
 import { getAllPeople, getPeopleById, createPeople } from './controllers/people.controller.js'
-import { getAllMovie, getMovieById, createMovie } from './controllers/movie.controller.js'
+import { getAllMovie, getMovieById, createMovie, deleteMovie } from './controllers/movie.controller.js'
 import { checkBeforeLogin } from './middleware/checkLogin.js'
 import { login } from './controllers/user.controller.js'
 import { checkToken } from './middleware/checkToken.js'
@@ -46,5 +46,6 @@ router.route('/movie')
     .post(createMovie)
 router.route('/movie/:id')
     .get(getMovieById)
+    .delete(deleteMovie)
 
 export default router

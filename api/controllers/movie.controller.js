@@ -65,6 +65,22 @@ export const createMovie = async(req, res) => {
     }
 }
 
+export const deleteMovie = async(req, res) => {
+    try {
+        const movie = await Movie.findByIdAndDelete(req.params.id).exec()
+        if (movie) {
+            return res.status(200).send({
+                message: "Success",
+            })
+        }
+    } catch (err) {
+        return res.status(500).send({
+            message: "Server Internal Error.",
+            error: err.message
+        })
+    }
+}
+
 export const getEpisodeById = async(req, res) => {
     try {
         const episode = await Episode.findById(req.params.id).exec()
