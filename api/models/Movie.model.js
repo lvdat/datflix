@@ -13,10 +13,6 @@ const movieSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    actors: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Actor',
-    }],
     genres: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',
