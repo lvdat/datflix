@@ -31,6 +31,7 @@ export default {
     }),
     methods: {
         async handleLogin () {
+            this.error = null
             try {
                 let login = await AuthService.login({
                     username: this.username,

@@ -43,7 +43,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><router-link class="dropdown-item" to="/admin"><i class="fas fa-sign-out-alt"></i> Admin Panel</router-link></li>
-                            <li><a class="dropdown-item" @click="logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>         
+                            <li><a class="dropdown-item" @click="logout" style="cursor: pointer;"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>         
                         </ul>
                     </li>
                 </ul>

@@ -1,28 +1,6 @@
 <template>
     <div class="row">
         <div class="col-md-8">
-            <div class="row mb-4">
-                <div class="d-flex play--info">
-                    <div class="play--info__img">
-                        <img src="https://phimmoiff.net/uploads/movies/dua-con-cua-than-tuong-120322-thumbnail.jpg" alt="">
-                    </div>
-                    <div class="play--info__meta">
-                        <span class="play--info__meta--name">
-                            ĐỨA CON CỦA THẦN TƯỢNG TẬP 1
-                        </span>
-                        <span class="play--info__meta--oname mb-3">
-                            推しの子 (2023)
-                        </span>
-                        <div class="play--info__meta--bio">
-                            <div class="card">
-                                <div class="card-body">
-                                    Đứa Con Của Thần Tượng - 推しの子 "Trong giới thần tượng, nói dỗi chính là vũ khí." Goro, người làm bác sĩ sản phụ khoa ở một thành phố nhỏ, hàng ngày sống một cuộc sống không liên quan gì đến ngành giải trí. Mặt khác, thần tượng Hoshino Ai mà anh "ủng hộ" bắt đầu thăng hạng trong danh sách... [ Xem thêm]
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <video controls>
                 <source src="/src/assets/video.mp4" type="video/mp4">
             </video>
@@ -35,6 +13,8 @@
                     </div>
                 </div>
             </div>
+            <FilmInfo :showPlay="false" />
+
         </div>
         <div class="col-md-4">
             <div class="row">
@@ -62,54 +42,19 @@
 </template>
 <script>
 import { defineComponent } from 'vue'
+import FilmInfo from '@/components/FilmInfo.vue'
 import { VideoPlayer } from '@videojs-player/vue'
 import 'video.js/dist/video-js.css'
 
 export default ({
     components: {
-        VideoPlayer
-    }
+    VideoPlayer,
+    FilmInfo
+}
 })
 </script>
 <style scoped>
-.play--info {
 
-}
-.play--info__img {
-    width: 155px;
-    height: 205px;
-    position: relative;
-    flex-shrink: 0;
-}
-.play--info__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: filter 0.3s;
-}
-.play--info__meta {
-    margin-left: 20px;
-}
-.play--info__meta--name, .play--info__meta--oname {
-    display: block;
-}
-.play--info__meta--name {
-    font-size: 26px;
-    text-transform: uppercase;
-    font-family: 'UTMCafeta';
-    color: rgb(0, 255, 133);
-}
-.play--info__meta--oname {
-    font-size: 12px;
-    color: #999;
-}
-.play--info__meta--bio > .card {
-    max-width: 100%;
-    border-radius: 0%;
-    background: #222;
-    color: #bbb;
-    font-size: 12px;
-}
 .related-movie-item {
     width: 100%;
     flex-shrink: 0;

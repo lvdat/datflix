@@ -57,7 +57,7 @@ const router = createRouter({
             name: 'play',
             component: () =>
                 import ('@/views/PlayView.vue'),
-            meta: { title: 'Chi tiết phim' }
+            meta: { title: 'Xem phim' }
         },
         {
             path: '/admin',
