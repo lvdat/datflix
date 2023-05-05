@@ -2,24 +2,25 @@
     <div class="row mb-3">
         <div class="col-md-4">
             <div class="list-group admin-leftbar">
-                <a @click="setAction('movie')" class="list-group-item list-group-item-action active">
+                <a @click="setAction('movie')" class="list-group-item list-group-item-action">
                     Quản lý phim
                 </a>
                 <a @click="setAction('genre')" class="list-group-item list-group-item-action">Quản lý thể loại</a>
-                <a @click="setAction('country')" class="list-group-item list-group-item-action">Quản lý quốc gia</a>
-                <a @click="setAction('episode')" class="list-group-item list-group-item-action">Quản lý tập phim</a>
             </div>
         </div>
         <div class="col-md-8">
-            <MovieManager />
+            <MovieManager v-if="currentAction == 'movie'" />
+            <CategoryManager v-if="currentAction == 'genre'" />
         </div>
     </div>
 </template>
 <script>
 import MovieManager from './MovieManager.vue'
+import CategoryManager from './CategoryManager.vue'
 export default {
     components: {
         MovieManager,
+        CategoryManager,
     },
     data: () => ({
         currentAction: 'movie'

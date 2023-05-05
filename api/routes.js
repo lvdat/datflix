@@ -1,6 +1,6 @@
 import express from 'express'
 import { getAllCountry, getCountryByIsoCode } from './controllers/country.controller.js'
-import { getAllCategory, getCategoryBySlug, createCategory } from './controllers/category.controller.js'
+import { getAllCategory, getCategoryById, createCategory, deleteCategory } from './controllers/category.controller.js'
 import { getAllPeople, getPeopleById, createPeople } from './controllers/people.controller.js'
 import { getAllMovie, getMovieById, createMovie, deleteMovie } from './controllers/movie.controller.js'
 import { checkBeforeLogin } from './middleware/checkLogin.js'
@@ -26,8 +26,9 @@ router.route('/categories')
     .get(getAllCategory)
 router.route('/category')
     .post([checkToken, createCategory])
-router.route('/category/:slug')
-    .get(getCategoryBySlug)
+router.route('/category/:id')
+    .get(getCategoryById)
+    .delete([checkToken, deleteCategory])
 
 
 // People
@@ -43,9 +44,9 @@ router.route('/auth/login')
 router.route('/movies')
     .get(getAllMovie)
 router.route('/movie')
-    .post(createMovie)
+    .post([checkToken, createMovie])
 router.route('/movie/:id')
     .get(getMovieById)
-    .delete(deleteMovie)
+    .delete([checkToken, deleteMovie])
 
 export default router

@@ -2,8 +2,8 @@
     <template v-if="currentAction === 'manager'">
         <div class="card mb-3 card-button">
             <div class="card-body text-center">
-                <button @click="changeAction('create')" type="button" class="btn btn-success"><i class="fas fa-plus"></i> Thêm phim mới</button>
-                <button @click="getMovies()" class="btn btn-warning reload-button"><i class="fas fa-rotate-right"></i> Làm mới</button>
+                <button @click="changeAction('create')" type="button" class="btn btn-success"><i class="fas fa-plus"></i> Thêm thể loại</button>
+                <button @click="getCategories()" class="btn btn-warning reload-button"><i class="fas fa-rotate-right"></i> Làm mới</button>
             </div>
         </div>
         <table class="table movie-manager-table">
@@ -15,10 +15,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="item in movies" :key="item._id">
+                <tr v-for="item in categories" :key="item._id">
                     <th scope="row">{{ item._id }}</th>
                     <td>{{ item.title }}</td>
-                    <td><button @click="deleteMovie(item._id)" class="btn btn-danger"><i class="fas fa-trash"></i></button></td>
+                    <td><button @click="deleteCategory(item._id)" class="btn btn-danger"><i class="fas fa-trash"></i></button></td>
                 </tr>
             </tbody>
         </table>
@@ -29,7 +29,7 @@
                 <button @click="changeAction('manager')" type="button" class="btn btn-success"><i class="fas fa-plus"></i> Quản lý</button>
             </div>
         </div>
-        <form @submit.prevent="addMovie()" class="mb-3">
+        <form @submit.prevent="addCategory()" class="mb-3">
             <div class="alert alert-warning mb-3" v-show="error" role="alert">
                 {{ error }}
             </div>
@@ -38,25 +38,10 @@
                 <label for="floatingInput">Tiêu đề</label>
             </div>
             <div class="form-floating mb-3">
-                <textarea rows="4" class="form-control" id="floatingDes" v-model="description" required></textarea>
-                <label for="floatingDes">Tóm tắt nội dung</label>
+                <input type="text" class="form-control" id="floatingSlug" v-model="description" required>
+                <label for="floatingDes">Slug</label>
             </div>
-            <div class="form-floating mb-3">
-                <input type="number" class="form-control" id="floatingYear" v-model="year" minlength="4" required />
-                <label for="floatingYear">Năm sản xuất</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingDuration" v-model="duration" required />
-                <label for="floatingDuration">Thời lượng</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingThumbnail" v-model="thumbnail" required />
-                <label for="floatingThumbnail">Link Thumbnail</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingThumbnail" v-model="video" required />
-                <label for="floatingThumbnail">Link video phim</label>
-            </div>
+
             <div class="d-grid gap-2">
                 <button class="btn btn-lg btn-success" type="submit"><b>Thêm Movie</b></button>
             </div>
@@ -65,60 +50,52 @@
 
 </template>
 <script>
-import MovieSevice from '@/services/movie.service'
+import CategorySevice from '@/services/category.service'
 import { get } from '@vueuse/core'
 export default {
     data: () => ({
         currentAction: 'manager',
-        movies: [],
+        categories: [],
         error: null,
         title: '',
-        description: '',
-        year: '',
-        duration: '',
-        thumbnail: '',
-        video: '',
+        slug: '',
     }),
     methods: {
-        async getMovies () {
+        async getCategories () {
             try {
-                this.movies = await MovieSevice.getAllMovie()
+                this.categories = await CategorySevice.getAllCategory()
             } catch (err) {
                 console.log(err)
             }
         },
-        async addMovie () {
+        async addCategory () {
             try {
-                await MovieSevice.createMovie({
+                await CategorySevice.createCategory({
                     title: this.title,
-                    description: this.description,
-                    year: this.year,
-                    duration: this.duration,
-                    thumbnail: this.thumbnail
+                    slug: this.slug
                 })
                 this.changeAction('manager')
-                this.getMovies()
+                this.getCategories()
             } catch (err) {
                 console.log(err)
             }
         },
-        async deleteMovie (id) {
-            if (confirm('Bạn có muốn xoá phim này?')) {
+        async deleteCategory (id) {
+            if (confirm('Bạn có muốn xoá chuyên mục này?')) {
                 try {
-                    await MovieSevice.deleteMovie(id)
+                    await CategorySevice.deleteCategory(id)
                 } catch (err) {
                     console.log(err)
                 }
             }
-            this.getMovies()
+            this.getCategories()
         },
         changeAction (action) {
             this.currentAction = action
         }
     },
     created () {
-        this.getMovies()
-        console.log(this.movies)
+        this.getCategories()
     },
 }
 </script>

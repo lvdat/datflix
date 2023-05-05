@@ -17,11 +17,9 @@ export const getAllCategory = async(req, res) => {
     }
 }
 
-export const getCategoryBySlug = async(req, res) => {
+export const getCategoryById = async(req, res) => {
     try {
-        const category = await Category.findOne({
-            slug: req.params.slug
-        }).exec()
+        const category = await Category.findById(req.params.id).exec()
         if (!category || category.length === 0) {
             return res.status(404).send({
                 message: "Không tìm thấy thể loại :("
@@ -51,6 +49,25 @@ export const createCategory = async(req, res) => {
         return res.status(400).send({
             message: "Failed",
             id: category._id
+        })
+    } catch (err) {
+        return res.status(500).send({
+            message: "Server Internal Error."
+        })
+    }
+}
+
+export const deleteCategory = async(req, res) => {
+    try {
+        const category = await Category.findByIdAndDelete(req.params.id)
+        if (category) {
+            return res.status(200).send({
+                message: "Success",
+                id: category._id
+            })
+        }
+        return res.status(400).send({
+            message: "Failed",
         })
     } catch (err) {
         return res.status(500).send({

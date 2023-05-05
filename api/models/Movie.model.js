@@ -17,14 +17,10 @@ const movieSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',
     }],
-    // Các trường khác tùy ý
-    director: String,
     duration: String,
     thumbnail: String,
-    country: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Country',
-    }
+    country: String,
+    video: String,
 })
 
 export default mongoose.model('Movie', movieSchema)

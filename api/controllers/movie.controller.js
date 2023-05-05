@@ -43,10 +43,10 @@ export const createMovie = async(req, res) => {
             description: req.body.description,
             year: req.body.year,
             genres: req.body.genres,
-            director: req.body.director,
             duration: req.body.duration,
             thumbnail: req.body.thumbnail,
             country: req.body.country,
+            video: req.body.video,
         })
         if (movie) {
             return res.status(200).send({

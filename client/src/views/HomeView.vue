@@ -1,7 +1,4 @@
 <template>
-    <div class="row">
-        <MainSlider />
-    </div>
     <div class="col-md-8">
         <HomeFilmList :dataFilm="filmList1" />
         <HomeFilmList :dataFilm="filmList2" />
