@@ -10,7 +10,6 @@
         </div>
         <button class="btn btn-primary">Lưu</button>
             <button
-                v-if="contactLocal._id"
                 type="button"
                 class="ml-2 btn btn-danger"
                 @click="deleteCategory">
@@ -27,7 +26,7 @@ export default {
     emits: ['submit:category', 'delete:category'],
     props: {
         category: {
-            type: Object, required: true
+            type: Object
         }
     }
 }

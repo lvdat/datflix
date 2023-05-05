@@ -8,9 +8,6 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/dvut"><i class="fas fa-square-rss"></i> Phim mới</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" href="/dvut"><i class="fas fa-clapperboard"></i> Phim lẻ</a>
                     </li>
                     <li class="nav-item">

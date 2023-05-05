@@ -5,7 +5,7 @@ const episodeSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    movieId: {
+    movie: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Movie',
     },
