@@ -21,22 +21,35 @@
             </div>
         </div>
     </div>
+    <hr />
     <div class="row mb-4">
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation" v-show="showPlay">
-                <button :class="playClass" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" :aria-selected="showPlay"><i class="fas fa-circle-play"></i> Xem phim</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button :class="infoClass" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" :aria-selected="!showPlay"><i class="fas fa-circle-info"></i> Thông tin</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fas fa-users"></i> Diễn viên</button>
-            </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-            <div :class="playTabClass" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">Play</div>
-            <div :class="infoTabClass" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">Info</div>
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">Actor</div>
+        <div class="movie-info-nav-tabs">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation" v-show="showPlay">
+                    <button :class="playClass" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" :aria-selected="showPlay"><i class="fas fa-circle-play"></i> Xem phim</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button :class="infoClass" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" :aria-selected="!showPlay"><i class="fas fa-circle-info"></i> Thông tin</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fas fa-users"></i> Diễn viên</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div :class="playTabClass" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                    Play
+                </div>
+                <div :class="infoTabClass" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                    <div class="card film-bio">
+                        <div class="card-body">
+                            <p>
+                                <b>Đứa Con Của Thần Tượng - 推しの子</b> "Trong giới thần tượng, nói dỗi chính là vũ khí." Goro, người làm bác sĩ sản phụ khoa ở một thành phố nhỏ, hàng ngày sống một cuộc sống không liên quan gì đến ngành giải trí. Mặt khác, thần tượng Hoshino Ai mà anh "ủng hộ" bắt đầu thăng hạng trong danh sách... [ Xem thêm]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">Actor</div>
+            </div>
         </div>
     </div>
 </template>
@@ -96,11 +109,14 @@ export default {
     font-size: 12px;
     color: #999;
 }
-.play--info__meta--bio > .card {
+.play--info__meta--bio > .card, .film-bio {
     max-width: 100%;
     border-radius: 0%;
     background: #222;
     color: #bbb;
     font-size: 12px;
+}
+.movie-info-nav-tabs {
+    
 }
 </style>

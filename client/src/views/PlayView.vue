@@ -13,6 +13,9 @@
                     </div>
                 </div>
             </div>
+
+            <hr />
+
             <FilmInfo :showPlay="false" />
 
         </div>
