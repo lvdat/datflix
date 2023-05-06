@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-md-8">
-            <FilmInfo />
+            <FilmInfo :id="idValue" />
 
         </div>
         <div class="col-md-4">
@@ -18,6 +18,9 @@ export default {
         FilmInfo,
         RelatedMovie,
     },
+    data: () => ({
+        id: ''
+    }),
     props: {
         name: {
             type: String,
@@ -34,6 +37,19 @@ export default {
         id: {
             type: String,
         },
+    },
+    methods: {
+        getId () {
+            return this.$route.params.id
+        }
+    },
+    created () {
+        this.id = this.getId()
+    },
+    computed: {
+        idValue () {
+            return this.getId()
+        }
     }
 }
 </script>

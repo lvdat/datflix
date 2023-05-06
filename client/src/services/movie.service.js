@@ -13,6 +13,9 @@ class MovieService {
     deleteMovie = async(id) => {
         return (await this.api.delete(`/movie/${id}`)).data
     }
+    getMovie = async(id) => {
+        return (await this.api.get(`/movie/${id}`))
+    }
 }
 
 export default new MovieService()
