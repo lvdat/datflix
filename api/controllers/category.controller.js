@@ -38,7 +38,6 @@ export const createCategory = async(req, res) => {
     try {
         const category = await Category.create({
             title: req.body.title,
-            slug: req.body.slug,
         })
         if (category) {
             return res.status(200).send({

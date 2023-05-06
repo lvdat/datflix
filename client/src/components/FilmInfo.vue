@@ -7,10 +7,10 @@
                 </div>
                 <div class="play--info__meta">
                     <span class="play--info__meta--name">
-                        ĐỨA CON CỦA THẦN TƯỢNG TẬP 1 {{ movieId }}
+                        {{ data.title }}
                     </span>
                     <span class="play--info__meta--oname mb-3">
-                        推しの子 (2023)
+                        {{ data.title }}
                     </span>
                     <span class="play--info__meta--info mb-3">
                         Nhật Bản | 50 tập | <span style="color: rgba(255,255,255,.28); font-size: 16px">2023</span>

@@ -57,15 +57,26 @@
                 <input type="text" class="form-control" id="floatingThumbnail" v-model="video" required />
                 <label for="floatingThumbnail">Link video phim</label>
             </div>
+            <p>Thể loại</p>
+            <div class="card mb-3 card-button">
+                <div class="card-body">
+                    <div v-for="item in categories" :key="item._id">
+                        <input type="checkbox" :value="item._id" v-model="selectedCategories" />
+                        {{ item.title }}
+                    </div>
+                </div>
+            </div>
             <div class="d-grid gap-2">
                 <button class="btn btn-lg btn-success" type="submit"><b>Thêm Movie</b></button>
             </div>
+
         </form>
     </template>
 
 </template>
 <script>
 import MovieSevice from '@/services/movie.service'
+import CategorySevice from '@/services/category.service'
 import { get } from '@vueuse/core'
 export default {
     data: () => ({
@@ -78,6 +89,8 @@ export default {
         duration: '',
         thumbnail: '',
         video: '',
+        categories: [],
+        selectedCategories: [],
     }),
     methods: {
         async getMovies () {
@@ -94,13 +107,15 @@ export default {
                     description: this.description,
                     year: this.year,
                     duration: this.duration,
-                    thumbnail: this.thumbnail
+                    thumbnail: this.thumbnail,
+                    genres: this.selectedCategories,
                 })
                 this.changeAction('manager')
                 this.getMovies()
             } catch (err) {
                 console.log(err)
             }
+            this.resetData()
         },
         async deleteMovie (id) {
             if (confirm('Bạn có muốn xoá phim này?')) {
@@ -114,10 +129,22 @@ export default {
         },
         changeAction (action) {
             this.currentAction = action
+        },
+        async getCategoriesList () {
+            this.categories = await CategorySevice.getAllCategory()
+        },
+        resetData () {
+            this.title = ''
+            this.description = ''
+            this.year = ''
+            this.duration = ''
+            this.thumbnail = ''
+            this.selectedCategories = []
         }
     },
     created () {
         this.getMovies()
+        this.getCategoriesList()
         console.log(this.movies)
     },
 }
@@ -126,6 +153,7 @@ export default {
 .card-button {
     border-radius: 0%;
     background: #222;
+    color: #fff;
 }
 .movie-manager-table {
     background: #222;
@@ -135,4 +163,5 @@ export default {
 .reload-button {
     margin-left: 20px;
 }
+
 </style>

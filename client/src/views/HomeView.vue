@@ -3,17 +3,19 @@
         <HomeFilmList :dataFilm="filmList1" />
         <HomeFilmList :dataFilm="filmList2" />
     </div>
-    <div class="col-md-4" style="border: 1px solid #fff">
-        
+    <div class="col-md-4">
+        <RelatedMovie />
     </div>
 </template>
 <script>
 import MainSlider from '@/components/MainSlider.vue'
-import HomeFilmList from '../components/HomeFilmList.vue'
+import HomeFilmList from '@/components/HomeFilmList.vue'
+import RelatedMovie from '@/components/RelatedMovie.vue'
 export default {
     components: {
         MainSlider,
-        HomeFilmList
+        HomeFilmList,
+        RelatedMovie,
     },
     data: () => ({
         filmList1: {

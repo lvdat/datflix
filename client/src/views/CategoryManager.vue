@@ -37,13 +37,9 @@
                 <input type="text" class="form-control" id="floatingInput" v-model="title" autofocus="true" required />
                 <label for="floatingInput">Tiêu đề</label>
             </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingSlug" v-model="description" required>
-                <label for="floatingDes">Slug</label>
-            </div>
 
             <div class="d-grid gap-2">
-                <button class="btn btn-lg btn-success" type="submit"><b>Thêm Movie</b></button>
+                <button class="btn btn-lg btn-success" type="submit"><b>Thêm Chuyên mục</b></button>
             </div>
         </form>
     </template>
@@ -72,7 +68,6 @@ export default {
             try {
                 await CategorySevice.createCategory({
                     title: this.title,
-                    slug: this.slug
                 })
                 this.changeAction('manager')
                 this.getCategories()

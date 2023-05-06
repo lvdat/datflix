@@ -14,6 +14,9 @@ const episodeSchema = new mongoose.Schema({
     },
     quality: {
         type: String
+    },
+    type: {
+        type: String
     }
 })
 

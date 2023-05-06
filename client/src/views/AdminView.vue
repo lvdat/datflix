@@ -6,6 +6,7 @@
                     Quản lý phim
                 </a>
                 <a @click="setAction('genre')" class="list-group-item list-group-item-action">Quản lý thể loại</a>
+                <a @click="setAction('episode')" class="list-group-item list-group-item-action">Quản lý tập phim</a>
             </div>
         </div>
         <div class="col-md-8">
@@ -17,10 +18,12 @@
 <script>
 import MovieManager from './MovieManager.vue'
 import CategoryManager from './CategoryManager.vue'
+import EpisodeManager from './EpisodeManager.vue'
 export default {
     components: {
         MovieManager,
         CategoryManager,
+        EpisodeManager,
     },
     data: () => ({
         currentAction: 'movie'
